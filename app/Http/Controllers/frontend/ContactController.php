@@ -5,6 +5,7 @@ namespace App\Http\Controllers\frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Message;
+use Illuminate\Support\Facades\Validator;
 
 class ContactController extends Controller
 {
@@ -15,20 +16,20 @@ class ContactController extends Controller
     }
     public function store(Request $request)
     {
-        $messages = Message::insert(
-            [
-                'name' => $request->name,
-                'email' => $request->email,
-                'created_at' => $request->created_at,
-                'message' => $request->message,
+        $validator = Validator::make($request->all(),[
+            'name' => 'required|max:255',
+            'email' => 'required|email:rfc,dns',
+            'message' => 'required|max:255',
+        ]);
 
-            ]
-        );
-        if ($messages) {
-            return redirect(route('contact'))->with('success', 'Mesajınız iletildi');
+        if (!$validator->fails()){
+            Message::insert(
+                $validator->validated()
+            );
+
+            return back()->with('message', ['type' => 'success', 'content' => 'Mesajınız iletildi']);
         }
-        return back()->with('error', 'Mesajınız iletilemedi');
-
+        else return back()->with('message', ['type' => 'danger', 'content' => 'Mesajınız iletilemedi']);
     }
 }
 

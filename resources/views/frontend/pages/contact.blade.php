@@ -71,18 +71,9 @@
                             <small>Gönderdiğiniz mesaja kısa zamanda yanıt vermeye çalışacağız</small>
                         </h2>
 
-                        @if (session()->has('success'))
-                            <div class="alert alert-success">
-                                @if(is_array(session('success')))
-                                    <ul>
-                                        @foreach (session('success') as $message)
-                                            <li>{{ $message }}</li>
-                                        @endforeach
-                                    </ul>
-                                @else
-                                    {{ session('success') }}
-                                @endif
-
+                        @if (session()->has('message'))
+                            <div class="alert alert-{{session('message')['type']}}">
+                                {{ session('message')['content'] }}
                             </div>
                         @endif
                         <form method="post" action="@route('contact-post')">

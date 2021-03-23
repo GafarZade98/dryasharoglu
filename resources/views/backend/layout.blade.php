@@ -153,7 +153,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </footer>
     <div class="control-sidebar-bg"></div>
 </div>
-<script src="@asset('backend/bower_components/bootstrap/dist/js/bootstrap.min.js')"></script>>
+<script src="@asset('backend/bower_components/bootstrap/dist/js/bootstrap.min.js')"></script>
 <script src="@asset('backend/dist/js/adminlte.min.js')"></script>
 
 

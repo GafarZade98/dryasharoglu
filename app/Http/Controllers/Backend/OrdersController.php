@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\backend;
+namespace App\Http\Controllers\Backend;
 
 use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
@@ -28,5 +28,14 @@ class OrdersController extends Controller
         $order = Order::where('id', $id)->firstOrFail();
 
         return view('backend.orders.products', compact('order'));
+    }
+    public function destroy($id)
+    {
+        $orders=Order::find(intval($id));
+        if ($orders->delete())
+        {
+            return back()->with('success', 'Silinme işlemi başarılı');
+        }
+        return back()->with('error', 'Silinme işlemi başarısız');
     }
 }

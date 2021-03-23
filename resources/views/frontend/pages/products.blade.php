@@ -168,7 +168,7 @@
                     <!-- /SIDEBAR -->
 
                     <!-- CONTENT -->
-                    <div class=" content" id="content" style="margin-left: 150px">
+                    <div class="content" id="content">
 
                         <div class=" content-area">
                             <div class="shell">
@@ -247,6 +247,18 @@
     </div>
 
     <style>
+
+
+        .content{
+        margin-left: 150px;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .content {
+                margin-left:0;
+            }
+        }
+
         .sidebar li.active {
             font-weight: 500;
         }

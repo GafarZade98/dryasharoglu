@@ -9,6 +9,7 @@
 
             </div>
             <div class="box-body">
+                <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
                     <tr>
@@ -28,7 +29,7 @@
                     </tr>
                     </thead>
 
-                    <tbody id="sortable">
+                    <tbody  id="sortable">
                     @foreach($orders as $order)
                         <tr id="item-{{$order->user_id}}">
                             <td>{{$order->id}}</td>
@@ -49,6 +50,7 @@
                     @endforeach
                     </tbody>
                 </table>
+                </div>
             </div>
         </div>
     </section>
@@ -63,28 +65,15 @@
             alertify.confirm('Silme İşlemini Onaylayın', 'Bu işlem geri alınamaz',
 
                 function () {
-
-                    //routumuz resource oldugu ucun silmeni ajax ile edirik
-                    $.ajax({
-                        type: "DELETE",
-                        url: "category/" + destroy_id,
-                        success: function (msg) {
-                            if (msg) {
-                                $("#item-" + destroy_id).remove();
-                                alertify.success("Silme İşlemi Başarılı");
-
-                            } else {
-                                alertify.error("İşlem Tamamlanamadı");
-                            }
-                        }
-                    });
-
+                    location.href = "/nedmin/order/delete/" + destroy_id;
                 },
+
                 function () {
                     alertify.error('Silme işlemi iptal edildi.')
                 }
             )
         });
+
 
 
     </script>
@@ -93,5 +82,4 @@
 
 
 @endsection
-@section('css')@endsection
-@section('js')@endsection
+

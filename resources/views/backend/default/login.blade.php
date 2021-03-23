@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="{{asset('backend/plugins/iCheck/square/blue.css')}}">
     <style type="text/css">
         .login-page {
-            background: url({{asset('/images/settings/bg.png')}}) no-repeat center center fixed;
+            background: url('@asset('images/settings/bg.png')') no-repeat center center fixed;
             background-size: cover;
             -webkit-background-size: cover;
             -moz-background-size: cover;

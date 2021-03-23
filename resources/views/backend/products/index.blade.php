@@ -11,6 +11,7 @@
                     </a></div>
             </div>
             <div class="box-body">
+                <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
                     <tr>
@@ -36,13 +37,14 @@
 
                             <td width="10"><a href="{{route('products.edit',$products->id)}}"><i
                                         class="fa fa-pencil-square-o"></i></a></td>
-                            <td width="10"><a href="javascript:void(0)"><i id="@php echo $products->id @endphp"
+                            <td width="10"><a href="javascript:void(0)"><i id="{{$products->id}}"
                                                                            class="fa fa-trash-o"></i></a>
                             </td>
                         </tr>
                     @endforeach
                     </tbody>
                 </table>
+                </div>
             </div>
         </div>
     </section>

@@ -11,7 +11,7 @@
     <meta name="geo.position" content="latitude; longitude">
     <meta name="geo.placename" content="place name">
     <meta name="geo.region" content="country subdivision code">
-    <meta name="description" content="country subdivision code">
+    <meta name="description" content="{{setting('description')}}">
 
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
     <link rel="shortcut icon" href="assets/ico/favicon.ico">

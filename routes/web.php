@@ -58,7 +58,7 @@ Route::post('/checkout','App\Http\Controllers\frontend\CheckoutController@store'
     Route::get('/confirmation', function () {return view('frontend.pages.confirmation');})->name('confirmation');
 
 
-//backend
+//Backend
 //login
 Route::get('nedmin','App\Http\Controllers\Backend\DefaultController@login')->name('nedmin.Login');
 Route::post('nedmin/login','App\Http\Controllers\Backend\DefaultController@authenticate')->name('nedmin.Authenticate');
@@ -72,15 +72,16 @@ Route::middleware('admin')->group(function () {
 
 
 //reservation
-    Route::get('nedmin/reservations','App\Http\Controllers\backend\ReservationController@index')->name('nedmin-reservation');
-    Route::get('nedmin/reservations/delete/{id}', 'App\Http\Controllers\backend\ReservationController@destroy');
+    Route::get('nedmin/reservations','App\Http\Controllers\Backend\ReservationController@index')->name('nedmin-reservation');
+    Route::get('nedmin/reservations/delete/{id}', 'App\Http\Controllers\Backend\ReservationController@destroy');
 
 //messages
-    Route::get('nedmin/messages','App\Http\Controllers\backend\MessagesController@index')->name('nedmin-messages');
-    Route::get('nedmin/messages/delete/{id}', 'App\Http\Controllers\backend\MessagesController@destroy');
+    Route::get('nedmin/messages','App\Http\Controllers\Backend\MessagesController@index')->name('nedmin-messages');
+    Route::get('nedmin/messages/delete/{id}', 'App\Http\Controllers\Backend\MessagesController@destroy');
 //order
-    Route::get('nedmin/orders','App\Http\Controllers\backend\OrdersController@index')->name('nedmin-order');
-    Route::get('nedmin/order/detail/{id}','App\Http\Controllers\backend\OrdersController@detail')->name('order.product');
+    Route::get('nedmin/orders','App\Http\Controllers\Backend\OrdersController@index')->name('nedmin-order');
+    Route::get('nedmin/order/detail/{id}','App\Http\Controllers\Backend\OrdersController@detail')->name('order.product');
+    Route::get('nedmin/order/delete/{id}', 'App\Http\Controllers\Backend\OrdersController@destroy');
 
 //settings
     Route::get('nedmin/settings', 'App\Http\Controllers\Backend\SettingsController@index')->name('setting.Index');
